@@ -1,12 +1,12 @@
-from discord.ext import commands
+from redbot.core import commands
 
-class PCChecker:
+class PCChecker(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
 
     @commands.command()
-    async def sjw(self):
+    async def sjw(self,ctx):
         """Lists SJW Rules"""
 
         sjw_rule = (
@@ -27,9 +27,9 @@ class PCChecker:
 
             "NOTE: In my definition, SJW = person who forcibly imposes their beliefs on other people")
 
-        #await self.bot.say(sjw_rule)
+        #await ctx.send(sjw_rule)
 
-        await self.bot.say(sjw_rule)
+        await ctx.send(sjw_rule)
 
 
 def setup(bot):

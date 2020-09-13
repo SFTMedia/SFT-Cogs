@@ -12,15 +12,14 @@ import os
 from redbot.core import commands
 
 
+def setup(bot):
+    bot.add_cog(SFTPlayerStats(bot))
 
 class SFTPlayerStats(commands.Cog):
     """Cog that enables checking a users' ingame stats from discord!"""
 
     def __init__(self, bot):
         self.bot = bot
-
-    def setup(bot):
-        bot.add_cog(SFTPlayerStats(bot))
 
 #self.defaultservers = DefaultServers(bot, "data/sftplayerstats/defaultservers.json")
         # self.file_path = "data/sftplayerstats/settings.json"

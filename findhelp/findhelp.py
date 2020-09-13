@@ -1,12 +1,12 @@
-from discord.ext import commands
+from redbot.core import commands
 
-class FindHelp:
+class FindHelp(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
 
     @commands.command()
-    async def findhelp(self):
+    async def findhelp(self,ctx):
         """Lists global crisis hotlines"""
 
         find_help_message = (
@@ -20,7 +20,7 @@ class FindHelp:
 
             "Other: <https://en.m.wikipedia.org/wiki/List_of_suicide_crisis_lines>")
 
-        await self.bot.say(find_help_message)
+        await ctx.send(find_help_message)
 
 
 def setup(bot):

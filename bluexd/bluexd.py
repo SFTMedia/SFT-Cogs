@@ -1,6 +1,6 @@
-from discord.ext import commands
+from redbot.core import commands
 
-class BlueXD:
+class BlueXD(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -29,7 +29,7 @@ class BlueXD:
             "<@140090865354932225> sometimes makes bad decisions and sometimes they are stupid and/or also unfunny.\n")
 
 
-        await self.bot.say(blue_stuff)
+        await ctx.send(blue_stuff)
 
 
 
