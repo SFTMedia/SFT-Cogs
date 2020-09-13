@@ -6,7 +6,7 @@ class BlueXD(commands.Cog):
 
 
     @commands.command()
-    async def blue(self):
+    async def blue(self,ctx):
         """Explains how Blue operates"""
 
         #blue_id = "<@140090865354932225>"
