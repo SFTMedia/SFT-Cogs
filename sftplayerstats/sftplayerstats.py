@@ -69,7 +69,7 @@ class SFTPlayerStats(commands.Cog):
             the_page = req.data
             await ctx.send("```"+re.sub(r"§[A-z0-9]","",the_page.decode("utf-8"))+"```")
 
-        elif(servertosearch == "1710" or servertosearch == "1710pack" or servertosearch == "1.7.10" or servertosearch == "1710Pack"): # 1710Pack
+        elif(servertosearch == "Stoneblock2" or servertosearch == "Stoneblock" or servertosearch == "SB2" or servertosearch == "sb2" or servertosearch == "1710" or servertosearch == "1710pack" or servertosearch == "1.7.10" or servertosearch == "1710Pack"): # 1710Pack
             getTime = time.strftime("%Y-%m-%d:%H:%M:%S+0000", gmtime())
             req = urllib3.PoolManager().request("GET","http://www.superfuntime.org/api/mc/pstats2/pstats.php?command=website&&timestamp="+getTime+"&username="+usertosearch+"&info0=info&info1="+usertosearch+"&info2=1710pack&")
             the_page = req.data
@@ -144,6 +144,12 @@ class SFTPlayerStats(commands.Cog):
         elif(servertosearch == "acdc" or servertosearch == "ACDC" or servertosearch == "AutomatedChoas"): # Automated Choas
             getTime = time.strftime("%Y-%m-%d:%H:%M:%S+0000", gmtime())
             req = urllib3.PoolManager().request("GET","http://www.superfuntime.org/api/mc/pstats2/pstats.php?command=website&&timestamp="+getTime+"&username="+usertosearch+"&info0=info&info1="+usertosearch+"&info2=ACDC&")
+            the_page = req.data
+            await ctx.send("```"+re.sub(r"§[A-z0-9]","",the_page.decode("utf-8"))+"```")
+
+        elif(servertosearch == "MCE" or servertosearch == "MCEternal" or servertosearch == "Eternal"): # Automated Choas
+            getTime = time.strftime("%Y-%m-%d:%H:%M:%S+0000", gmtime())
+            req = urllib3.PoolManager().request("GET","http://www.superfuntime.org/api/mc/pstats2/pstats.php?command=website&&timestamp="+getTime+"&username="+usertosearch+"&info0=info&info1="+usertosearch+"&info2=SFTM&")
             the_page = req.data
             await ctx.send("```"+re.sub(r"§[A-z0-9]","",the_page.decode("utf-8"))+"```")
 
