@@ -1,0 +1,8 @@
+{
+    "author" : ["blalp"],
+    "install_msg" : "Gets ID",
+    "name" : "IDFinder",
+    "short" : "IDFinder",
+    "description" : "Utility to get your discord ID",
+    "tags" : ["Utility"]
+}
