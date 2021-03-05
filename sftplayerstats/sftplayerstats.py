@@ -152,6 +152,12 @@ class SFTPlayerStats(commands.Cog):
             req = urllib3.PoolManager().request("GET","http://www.superfuntime.org/api/mc/pstats2/pstats.php?command=website&&timestamp="+getTime+"&username="+usertosearch+"&info0=info&info1="+usertosearch+"&info2=SFTM&")
             the_page = req.data
             await ctx.send("```"+re.sub(r"§[A-z0-9]","",the_page.decode("utf-8"))+"```")
+            
+        elif(servertosearch == "SkyBlock" or servertosearch == "skyblock" or servertosearch == "Skyblock" or servertosearch == "Sky"): # SkyBlock
+            getTime = time.strftime("%Y-%m-%d:%H:%M:%S+0000", gmtime())
+            req = urllib3.PoolManager().request("GET","http://www.superfuntime.org/api/mc/pstats2/pstats.php?command=website&&timestamp="+getTime+"&username="+usertosearch+"&info0=info&info1="+usertosearch+"&info2=SKYBLOCK&")
+            the_page = req.data
+            await ctx.send("```"+re.sub(r"§[A-z0-9]","",the_page.decode("utf-8"))+"```")
 
 
 #def does_folder_exist():
