@@ -2,7 +2,7 @@
     "author" : ["bluetigeresw"],
     "install_msg" : "Gaming truly is a lifestyle...",
     "name" : "SFTPlayerStats",
-    "short" : "Blues Cogs",
+    "short" : "SFT Cogs",
     "description" : "Shows ingame player stats for SFT servers.",
     "tags" : ["Utility"]
 }
