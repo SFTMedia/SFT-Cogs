@@ -10,7 +10,7 @@ class SFTCommands(commands.Cog):
         """Links Discord Premium Shop"""
 
         discord_shop_msg = (
-            "Check out our Discord Premium Shop here ->\n"
+            "**Check out our Discord Premium Shop here** ->\n"
 	    "https://super-fun-time-discord.tebex.io/")
 
         await ctx.send(discord_shop_msg)
@@ -21,7 +21,7 @@ class SFTCommands(commands.Cog):
         """Links Minecraft Premium Shop"""
 
         mc_shop_msg = (
-            "Check out our Server Premium Shop here ->\n"
+            "**Check out our Server Premium Shop here** ->\n"
 	    "https://www.superfuntime.org/shops")
 
         await ctx.send(mc_shop_msg)
@@ -32,7 +32,7 @@ class SFTCommands(commands.Cog):
         """Links SFT Merch Shop"""
 
         merch_shop_msg = (
-            "Check out our Merch Shop here ->\n"
+            "**Check out our Merch Shop here** ->\n"
             "https://shop.spreadshirt.com/superfuntime/")
 
         await ctx.send(merch_shop_msg)
@@ -43,7 +43,7 @@ class SFTCommands(commands.Cog):
         """Links SFT server list"""
 
         server_list_msg = (
-            "Check out all the servers we host here ->\n"
+            "**Check out all the servers we host here** ->\n"
 	    "https://www.superfuntime.org/forum/index.php/topic,89705.0.html")
 
         await ctx.send(server_list_msg)
