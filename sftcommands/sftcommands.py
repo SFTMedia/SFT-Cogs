@@ -64,7 +64,7 @@ class SFTCommands(commands.Cog):
     async def patreon(self,ctx):
         """Links SFT patreon"""
 
-        vote_msg = (
+        patreon_msg = (
             "**You can support us on Pateron and get unique perks and rewards (such as a shiny discord rank, premium shop credit, etc) and help the server from as low as $5 / mo\n"
 	        "https://www.patreon.com/sftmedia")
 
