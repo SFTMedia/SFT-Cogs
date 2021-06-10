@@ -11,7 +11,7 @@ class SFTCommands(commands.Cog):
 
         discord_shop_msg = (
             "**Check out our Discord Premium Shop here** ->\n"
-	    "https://super-fun-time-discord.tebex.io/")
+	    "https://superfuntime.buycraft.net/category/discord")
 
         await ctx.send(discord_shop_msg)
 
