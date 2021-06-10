@@ -60,6 +60,17 @@ class SFTCommands(commands.Cog):
         await ctx.send(vote_msg)
 
 
+    @commands.command()
+    async def patreon(self,ctx):
+        """Links SFT patreon"""
+
+        vote_msg = (
+            "**You can support us on Pateron and get unique perks and rewards (such as a shiny discord rank, premium shop credit, etc) and help the server from as low as $5 / mo\n"
+	        "https://www.patreon.com/sftmedia")
+
+        await ctx.send(patreon_msg)
+
+
 def setup(bot):
     n = SFTCommands(bot)
     bot.add_cog(n)
