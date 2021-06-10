@@ -71,6 +71,52 @@ class SFTCommands(commands.Cog):
         await ctx.send(patreon_msg)
 
 
+    @commands.command()
+    async def faq(self,ctx):
+        """Sends the SFT Discord FAQ message"""
+
+        faq_msg = (
+            "====[ Frequently Asked Questions ]====\n\n"
+            "**What servers do we host?**\n"
+            "You can view a full list of our servers here -> <https://www.superfuntime.org/forum/index.php/topic,89705.0.html>\n\n"
+            "**Need support?**\n"
+            "Make a ticket by typing in #support\n\n"
+            "**How do I rank up on discord?**\n"
+            "Our ranks are handled by @Tatsu#8792 .  For every minute you send messages you earn xp and after a certain amount of do you rankup.  Rankup xp requirements are pinned in #bot-spam \n\n"
+            "**Want notifications for updates on your favorite server?**\n"
+            "Type `+selfrole` in #bot-spam and type the name of the rank you wish to receive\n\n"
+            "**How can I send a message to ingame chat from discord?**\n"
+            "All of our server chats are connected to discord channels.  You can talk to friends ingame and they can see your messages as well.  Head on over to #mc-network-chat \n\n"
+            "**Have a server idea/bug to report?**\n"
+            "Make a ticket by typing in #support \n\n"
+            "**Want to join our serious topics/politics/religion channel?**\n"
+            "Type `+selfrole add Insomniac` in #bot-spam \n\n"
+            "**Want notifications for server updates and to be entered into our giveaways?**\n"
+            "Type `+selfrole add Pingme` in #bot-spam \n\n"
+            "**Want party game/jackbox notifications?**\n"
+            "Type `+selfrole add PartyGamer` in #bot-spam \n\n"
+            "**What are the rules for #insomniac-chat ?**\n"
+            "All #rules apply besides discord etiquette rule #9.  Additionally, no sexual content or gore (as per discord ToS) and avoid overly edgy shock content please.\n\n"
+            "**Unsure if something is against our rules here?**\n"
+            "If you’re still unsure whether something not explicitly stated in #rules violates our rules or not, feel free to dm any member of our @Discord Admin team and we’d be happy to clarify! :)")
+
+        await ctx.send(faq_msg)
+
+
+    @commands.command()
+    async def roles(self,ctx):
+        """Sends information about the Discord donator roles"""
+
+        roles_msg = (
+            "====[ Discord Donator Roles ]====\n\n"
+            "We now have 3 special Discord Donator ranks! @Discord Crab🦀 , @Discord Shark🦈 and @Discord Whale🐳 come with extra giveaway entries, 1 free custom emoji of your choice that you can change once per month, and a colored name ingame when you talk in #mc-network-chat !  These roles have just been added so more perks are likely to come in the future.\n\n"  
+            "*NOTE: These are one time purchase roles, not subscription based.*\n\n"
+            "You can purchase a rank here ->\n"
+            "http://superfuntime.buycraft.net/category/discord")
+
+        await ctx.send(roles_msg)
+
+
 def setup(bot):
     n = SFTCommands(bot)
     bot.add_cog(n)
