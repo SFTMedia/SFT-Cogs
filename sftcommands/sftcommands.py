@@ -11,7 +11,7 @@ class SFTCommands(commands.Cog):
 
         discord_shop_msg = (
             "**Check out our Discord Premium Shop here** ->\n"
-	    "https://superfuntime.buycraft.net/category/discord")
+	        "https://superfuntime.buycraft.net/category/discord")
 
         await ctx.send(discord_shop_msg)
 
@@ -22,7 +22,7 @@ class SFTCommands(commands.Cog):
 
         mc_shop_msg = (
             "**Check out our Server Premium Shop here** ->\n"
-	    "https://www.superfuntime.org/shops")
+	        "https://www.superfuntime.org/shops")
 
         await ctx.send(mc_shop_msg)
 
@@ -44,11 +44,22 @@ class SFTCommands(commands.Cog):
 
         server_list_msg = (
             "**Check out all the servers we host here** ->\n"
-	    "https://www.superfuntime.org/forum/index.php/topic,89705.0.html")
+	        "https://www.superfuntime.org/forum/index.php/topic,89705.0.html")
 
         await ctx.send(server_list_msg)
 
-	
+
+    @commands.command()
+    async def vote(self,ctx):
+        """Links SFT vote sites"""
+
+        vote_msg = (
+            "**Vote for our servers here** ->\n"
+	        "https://www.superfuntime.org/vote")
+
+        await ctx.send(vote_msg)
+
+
 def setup(bot):
     n = SFTCommands(bot)
     bot.add_cog(n)
