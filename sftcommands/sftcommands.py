@@ -65,7 +65,7 @@ class SFTCommands(commands.Cog):
         """Links SFT patreon"""
 
         patreon_msg = (
-            "**You can support us on Pateron and get unique perks and rewards (such as a shiny discord rank, premium shop credit, etc) and help the server from as low as $5 / mo\n"
+            "You can support us on Pateron and get unique perks and rewards (such as a shiny discord rank, premium shop credit, etc) and help the server from as low as $5 / mo\n"
 	        "https://www.patreon.com/sftmedia")
 
         await ctx.send(patreon_msg)
