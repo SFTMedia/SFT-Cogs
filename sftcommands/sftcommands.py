@@ -11,7 +11,7 @@ class SFTCommands(commands.Cog):
 
         discord_shop_msg = (
             "Check out our Discord Premium Shop here ->\n"
-			"https://super-fun-time-discord.tebex.io/")
+	    "https://super-fun-time-discord.tebex.io/")
 
         await ctx.send(discord_shop_msg)
 
@@ -22,9 +22,20 @@ class SFTCommands(commands.Cog):
 
         mc_shop_msg = (
             "Check out our Server Premium Shop here ->\n"
-			"https://www.superfuntime.org/shops")
+	    "https://www.superfuntime.org/shops")
 
         await ctx.send(mc_shop_msg)
+
+
+    @commands.command()
+    async def merchshop(self,ctx):
+        """Links SFT Merch Shop"""
+
+        merch_shop_msg = (
+            "Check out our Merch Shop here ->\n"
+            "https://shop.spreadshirt.com/superfuntime/")
+
+        await ctx.send(merch_shop_msg)
 
 
     @commands.command()
@@ -33,10 +44,11 @@ class SFTCommands(commands.Cog):
 
         server_list_msg = (
             "Check out all the servers we host here ->\n"
-			"https://www.superfuntime.org/forum/index.php/topic,89705.0.html")
+	    "https://www.superfuntime.org/forum/index.php/topic,89705.0.html")
 
         await ctx.send(server_list_msg)
 
+	
 def setup(bot):
     n = SFTCommands(bot)
     bot.add_cog(n)
