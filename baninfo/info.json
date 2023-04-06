@@ -1,0 +1,8 @@
+{
+    "author" : ["blalp"],
+    "install_msg" : "Downloading BanInfo cog",
+    "name" : "BanInfo",
+    "short" : "SFT Cogs",
+    "description" : "Saves messages auto-deleted after a user is banned",
+    "tags" : ["Utility"]
+}

@@ -1,0 +1,8 @@
+{
+    "author" : ["bluetigeresw"],
+    "install_msg" : "Gaming truly is a lifestyle...",
+    "name" : "SFTCommands",
+    "short" : "SFT Cogs",
+    "description" : "Collection of commands for SFT purposes.",
+    "tags" : ["Utility"]
+}
