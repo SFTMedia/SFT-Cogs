@@ -1,2 +1,3 @@
-valheim-gamedig
 discord.py
+a2s
+valve
