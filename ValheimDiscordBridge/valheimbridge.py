@@ -6,10 +6,10 @@ import gamedig
 class ValheimBridge(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.valheim_ip = "127.0.0.1" # Replace with your Valheim server IP
+        self.valheim_ip = "rust.superfuntime.org" # Replace with your Valheim server IP
         self.valheim_port = 2456 # Replace with your Valheim server port
         self.valheim_rcon_password = "password" # Replace with your Valheim server RCON password
-        self.discord_channel_id = 1234567890 # Replace with the ID of the Discord channel to send messages to
+        self.discord_channel_id = 1092210477892898926 # Replace with the ID of the Discord channel to send messages to
         self.valheim_interval = 5 # The interval in seconds to check for new messages from Valheim
         self.valheim_last_message = ""
 
