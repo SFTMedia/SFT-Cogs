@@ -1,3 +1,8 @@
 discord.py
 a2s
-valve
+python-a2s
+python-valve
+python-dotenv
+pyyaml 
+asyncio 
+python-dateutil
