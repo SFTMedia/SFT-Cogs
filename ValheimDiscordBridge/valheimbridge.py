@@ -66,10 +66,25 @@ class ValheimBridge(commands.Cog):
 
     async def send_to_discord(self, message):
         channel = await self.bot.fetch_channel(self.discord_channel_id)
-        await channel.send(message)
 
-        # Send message back to Valheim chat if it was not sent by the Discord bot
-        if message.author != self.bot.user:
+        if message == "+playerlist":
+            valheim_info = await asyncio.wait_for(
+                loop.run_in_executor(None, gamedig.query, "valheim", {
+                    "type": "valheim",
+                    "host": self.valheim_ip,
+                    "port": self.valheim_port
+                }), timeout=5)
+            player_list = valheim_info["players"]
+            if len(player_list) == 0:
+                await channel.send("There are no players online.")
+            else:
+                players = "\n".join(player["name"] for player in player_list)
+                await channel.send(f"Online players:\n{players}")
+        else:
+            await channel.send(message)
+
+        # Send message back to Valheim chat if it was not sent by the Discord bot and not a player list request
+        if message.author != self.bot.user and message != "+playerlist":
             rcon_message = f'say "{message.content}"'
             self.valheim_rcon.connect()
             self.valheim_rcon.execute(rcon_message)
