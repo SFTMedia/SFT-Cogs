@@ -42,12 +42,12 @@ class ValheimBridge(commands.Cog):
                     self.valheim_last_message = valheim_messages[-1]
                     await self.send_to_discord(f"**Valheim:** {self.valheim_last_message}")
 
-                    # Check for player death messages
-                    if "was killed by" in self.valheim_last_message:
-                        death_message_parts = self.valheim_last_message.split()
-                        player_name = death_message_parts[0]
-                        death_cause = ' '.join(death_message_parts[3:])
-                        await self.send_to_discord(f"**Valheim:** {player_name} died due to {death_cause}.")
+                # Check for player death messages
+                if "was killed by" in self.valheim_last_message:
+                    death_message_parts = self.valheim_last_message.split()
+                    player_name = death_message_parts[0]
+                    death_cause = ' '.join(death_message_parts[3:])
+                    await self.send_to_discord(f"**Valheim:** {player_name} died due to {death_cause}.")
 
                 # Check for new players
                 valheim_players = valheim_info["raw"]["players"]
