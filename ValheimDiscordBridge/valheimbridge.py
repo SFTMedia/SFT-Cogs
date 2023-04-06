@@ -2,6 +2,7 @@ import asyncio
 import discord
 from discord.ext import commands
 import gamedig
+import a2s
 
 class ValheimBridge(commands.Cog):
     def __init__(self, bot):
