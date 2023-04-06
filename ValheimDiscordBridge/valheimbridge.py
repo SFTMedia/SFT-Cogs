@@ -68,6 +68,13 @@ class ValheimBridge(commands.Cog):
         channel = await self.bot.fetch_channel(self.discord_channel_id)
         await channel.send(message)
 
+        # Send message back to Valheim chat if it was not sent by the Discord bot
+        if message.author != self.bot.user:
+            rcon_message = f'say "{message.content}"'
+            self.valheim_rcon.connect()
+            self.valheim_rcon.execute(rcon_message)
+            self.valheim_rcon.disconnect()
+
     @commands.Cog.listener()
     async def on_ready(self):
         self.bot.loop.create_task(self.connect_to_valheim())
