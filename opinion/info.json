@@ -2,7 +2,7 @@
     "author" : ["bluetigeresw"],
     "install_msg" : "We're all lawyers",
     "name" : "Opinion",
-    "short" : "Blues Cogs",
+    "short" : "SFT Cogs",
     "description" : "Utility to to provide professional legal disclaimers",
     "tags" : ["Utility"]
 }
