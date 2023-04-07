@@ -64,7 +64,7 @@ class ValheimBridge(commands.Cog):
         self.event_task = asyncio.create_task(self.check_player_deaths())
 
         # Send message to Discord channel when bot is ready
-        await self.channel.send('Server bridge is now online!')   
+        await self.channel.send('Server bridge is now online!')
 
     def cog_unload(self):
         asyncio.create_task(self.cancel_tasks())
@@ -106,6 +106,16 @@ class ValheimBridge(commands.Cog):
                     await self.get_channel(int(config.get('Discord', 'channel_id'))).send("Server is now offline.")
                     player_list = []
         await asyncio.sleep(60)
+
+#    @commands.command()
+#    async def valheim(self,ctx):
+#        """Queries valheim"""
+#
+#        status = await self.rcon_command('list')
+#        if status:
+#            await message.channel.send(status)
+#        else:
+#            await message.channel.send('Could not connect to server.')
 
     @tasks.loop(seconds=10.0)
     async def check_player_deaths(self):
