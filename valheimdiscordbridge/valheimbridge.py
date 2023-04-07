@@ -1,39 +1,48 @@
+from redbot.core import commands
 import asyncio
 import configparser
 import discord
+import valve.source.a2s as a2s 
 from valve.source.a2s import ServerQuerier, NoResponseError
-from a2s import NoResponseError, ServerQuerier
-import a2s
-from valve.rcon import RCON, AuthenticationError
+#import a2s
+import valve.rcon as rcon
+from valve.rcon import RCON, RCONAuthenticationError
+import valve.source.messages as messages
+from valve.source.messages import BrokenMessageError
+import os
 
 from datetime import datetime
 from discord.ext import commands, tasks
 
-config = configparser.ConfigParser()
-config.read('config.ini')
 
 class ValheimBridge(commands.Cog):
+    """Bridge Valheim to Discord!"""
+
     def __init__(self, bot):
         self.bot = bot
-        #self.server_process = None
+        
+        # Set config location - needs direct path, kind of an L
+        config = configparser.ConfigParser()
+        config.read('./data/SFTCogs/valheimdiscordbridge/config.ini')
+        
+        # Read config
         self.server_ip = config.get('Server', 'server_ip')
         self.server_port = int(config.get('Server', 'server_port'))
         self.rcon_password = config.get('Server', 'rcon_password')
         self.channel_id = int(config.get('Discord', 'channel_id'))
-        #self.server = valve.source.a2s.ServerQuerier((self.server_ip, self.server_port), timeout=5)
-        self.server = a2s.valve.source.a2s.ServerQuerier((self.server_ip, self.server_port))
+        self.server = a2s.ServerQuerier((self.server_ip, self.server_port))
         self.event_start_time = None
         self.command_prefix = config.get('Discord', 'command_prefix')
-        self.admin_role_names = config.get('Discord', 'admin_role_names').split(',')
-        self.server_status_message_id = None
-        self.server_status_message = None
-        self.server_status = False
+        self.admin_roles = config.get('Roles', 'admin_roles').split(', ')
+        self.server_online = False
         self.playerlist = []
+        self.death_messages = []
+        self.event_messages = []
         self.event_task = None
         
-        self.event_task = asyncio.create_task(self.check_player_changes())
-        self.event_task = asyncio.create_task(self.check_events())
-        self.event_task = asyncio.create_task(self.check_player_deaths())
+        # Initialize other instance variables
+        self.online_players = set()
+        self.offline_players = set()
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -41,10 +50,18 @@ class ValheimBridge(commands.Cog):
 
         # Initialize A2S and RCON instances
         self.a2s = a2s.A2SInfo(self.server_ip, self.server_port)
-        self.rcon = RCON(self.server_ip, self.rcon_password)
+        self.rcon = RCON((self.server_ip, self.rcon_password))
 
         # Connect to Discord channel
         self.channel = self.get_channel(self.channel_id)
+        
+        # Cool feature
+        await self.bot.change_presence(activity=discord.Game(name="Valheim"))
+
+        # Start tasks
+        self.event_task = asyncio.create_task(self.check_player_changes())
+        self.event_task = asyncio.create_task(self.check_events())
+        self.event_task = asyncio.create_task(self.check_player_deaths())
 
         # Send message to Discord channel when bot is ready
         await self.channel.send('Server bridge is now online!')   
@@ -54,26 +71,25 @@ class ValheimBridge(commands.Cog):
 
     async def rcon_command(self, command: str) -> str:
         try:
-            with a2s.Rcon(self.server_ip, self.rcon_password, self.server_port) as rcon:
+            #with RCON((self.server_ip, self.rcon_password, self.server_port)) as rcon:
+            with RCON((self.server_ip, self.rcon_password)) as rcon:
                 response = await rcon.execute(command)
                 return response
-        except a2s.BrokenMessageError:
+        except messages.BrokenMessageError:
             return "Error: Received a broken message from the server"
-        except a2s.RconError as e:
-            #self.channel.send(f"Could not connect to server")
-            #return None
+        except self.rcon.RCONError as e:
             return f"Error: {str(e)}"
 
+    @tasks.loop(seconds=60.0)
     async def check_player_changes(self):
         global player_list
-        global server_online
 
         while True:
             try:
-                with self.valve.source.a2s.ServerQuerier((self.server_ip, self.server_port)) as server:
+                with a2s.ServerQuerier((self.server_ip, self.server_port)) as server:
                     server_info = server.info()
-                    if not server_online:
-                        server_online = True
+                    if not self.server_online:
+                        self.server_online = True
                         await self.get_channel(int(config.get('Discord', 'channel_id'))).send(f"Server {server_info['server_name']} is now online!")
                     new_player_list = server.players()['players']
                     new_player_list_names = [player['name'] for player in new_player_list]
@@ -84,21 +100,22 @@ class ValheimBridge(commands.Cog):
                         await self.get_channel(int(config.get('Discord', 'channel_id'))).send(f"Players joined: {', '.join(joiners)}")
                     if quitters:
                         await self.get_channel(int(config.get('Discord', 'channel_id'))).send(f"Players left: {', '.join(quitters)}")
-            except self.valve.source.a2s.NoResponseError:
-                if server_online:
-                    server_online = False
+            except a2s.NoResponseError:
+                if self.server_online:
+                    self.server_online = False
                     await self.get_channel(int(config.get('Discord', 'channel_id'))).send("Server is now offline.")
                     player_list = []
         await asyncio.sleep(60)
 
+    @tasks.loop(seconds=10.0)
     async def check_player_deaths(self):
         # Check death list
         try:
-            death_list = await self.rcon.send_command('lodb')
-        except a2s.RCONAuthenticationError:
+            death_list = await self.rcon_command('lodb')
+        except rcon.RCONAuthenticationError:
             await self.channel.send('RCON password is incorrect.')
             return
-        except a2s.RCONConnectionError:
+        except rcon.RCONAuthenticationError:
             await self.channel.send('Failed to connect to RCON. Is the server running?')
             return
         death_list = death_list.strip().split('\n')[1:]
@@ -113,14 +130,15 @@ class ValheimBridge(commands.Cog):
         # Update last deaths
         self.last_deaths = current_deaths
 
+    @tasks.loop(seconds=10.0)
     async def check_events(self):
         # Check event list
         try:
-            event_list = await self.rcon.send_command('listevents')
-        except a2s.RCONAuthenticationError:
+            event_list = await self.rcon_command('listevents')
+        except rcon.RCONAuthenticationError:
             await self.channel.send('RCON password is incorrect.')
             return
-        except a2s.RCONConnectionError:
+        except rcon.RCONConnectionError:
             await self.channel.send('Failed to connect to RCON. Is the server running?')
             return
         event_list = event_list.strip().split('\n')[1:]
@@ -174,7 +192,7 @@ class ValheimBridge(commands.Cog):
                     map_name = info.get("map_name")
                     await message.channel.send(f"**{server_name}**\nMap: {map_name}\n{player_count}/{max_players} players online")
                 elif command.startswith('kick '):
-                    role_names = config.get('discord', 'admin_role_names').split(',')
+                    role_names = config.get('Roles', 'admin_roles').split(',')
                     admin_roles = [discord.utils.get(message.guild.roles, name=name) for name in role_names]
                     if not any(role in message.author.roles for role in admin_roles):
                         await message.channel.send('You do not have permission to use this command.')
@@ -184,14 +202,13 @@ class ValheimBridge(commands.Cog):
                         await message.channel.send('Please specify a player to kick.')
                     else:
                         player_name = args[0]
-                        #await a2s.rcon.command(f'kick {player_name}')
-                        await self.server.rcon.command(f'kick {player_name}')
+                        await self.rcon_command(f'kick {player_name}')
                         await message.channel.send(f'{player_name} has been kicked from the server.')
             except ConnectionError:
                 await message.channel.send("Error: Could not connect to server.")
         else:
             try:
-                self.server.rcon("say [Discord] {}: {}".format(message.author.name, message.content))
+                self.rcon_command("say [Discord] {}: {}".format(message.author.name, message.content))
             except a2s.valve.source.NoResponseError:
                 await message.channel.send("The server is not responding.")
 

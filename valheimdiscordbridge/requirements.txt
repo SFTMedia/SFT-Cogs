@@ -6,3 +6,5 @@ python-dotenv
 pyyaml 
 asyncio 
 python-dateutil
+monotic
+docopt
