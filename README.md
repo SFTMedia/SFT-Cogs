@@ -1,4 +1,4 @@
-# SFTCogs
+# SFT-Cogs
 Cogs made mostly by Blue (blalp made a few) for Red Discord Bot, mainly for use of SFT related systems.
 
 ## Installation
