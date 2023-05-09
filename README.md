@@ -1,9 +1,11 @@
 # SFT-Cogs
 Cogs made mostly by Blue (blalp made a few) for Red Discord Bot, mainly for use of SFT related systems.
 
+[![Python](https://img.shields.io/badge/paypal-donate-blue)]()
+
 ## Versions
-Python: 3.11+, 
-Red-DiscordBot: 3.5+
+- Python: 3.11+
+- Red-DiscordBot: 3.5+
 
 ## Installation
 Our repo requires the libraries in `requirements.txt` in order to work properly, you can install them by running `pip3 -r requirements.txt`.
