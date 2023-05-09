@@ -5,6 +5,7 @@
     "short" : "Shows ingame player stats for SFT servers.",
     "description" : "Shows ingame player stats for SFT servers.",
     "tags" : ["Utility"],
+    "requirements" : ["urllib3"],
     "min_bot_version": "3.5.0",
     "min_python_version": [
         3,

@@ -5,6 +5,7 @@
     "short" : "Links Valheim to Discord (WIP)",
     "description" : "Utility to enabling bridging Valheim to Discord (WIP)",
     "tags" : ["Utility"],
+    "requirements" : ["gamedig","a2s"],
     "min_bot_version": "3.5.0",
     "min_python_version": [
         3,
