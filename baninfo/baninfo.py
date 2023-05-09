@@ -6,6 +6,8 @@ class BanInfo(commands.Cog):
         self.bot = bot
         self.deleted_messages=[]
 
+    __version__ = "1.1.0"
+
     @commands.Cog.listener()
     async def on_raw_bulk_message_delete(self, payload):
         for message in payload.cached_messages:
@@ -35,5 +37,3 @@ class BanInfo(commands.Cog):
             if message["message"].author==member:
                 await ctx.send("```"+message["message"].content+"``` in <#"+str(message["message"].channel.id)+"> at "+str(message["message"].created_at))
 
-def setup(bot):
-    bot.add_cog(BanInfo(bot))

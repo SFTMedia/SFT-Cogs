@@ -4,6 +4,7 @@ class FindHelp(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    __version__ = "1.1.0"
 
     @commands.command()
     async def findhelp(self,ctx):
@@ -21,8 +22,3 @@ class FindHelp(commands.Cog):
             "Other: <https://en.m.wikipedia.org/wiki/List_of_suicide_crisis_lines>")
 
         await ctx.send(find_help_message)
-
-
-def setup(bot):
-    n = FindHelp(bot)
-    bot.add_cog(n)

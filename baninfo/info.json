@@ -4,5 +4,12 @@
     "name" : "BanInfo",
     "short" : "SFT Cogs",
     "description" : "Saves messages auto-deleted after a user is banned",
-    "tags" : ["Utility"]
+    "tags" : ["Utility"],
+    "min_bot_version": "3.5.0",
+    "min_python_version": [
+        3,
+        11,
+        0
+    ],
+    "end_user_data_statement": "This cog stores last sent messages from banned users for 36 hours then deletes said data."
 }

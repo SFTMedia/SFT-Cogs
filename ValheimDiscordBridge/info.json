@@ -1,8 +1,0 @@
-{
-    "author" : ["bluetigeresw"],
-    "install_msg" : "Connecting Valheim to Discord...",
-    "name" : "ValheimBridge",
-    "short" : "SFT Cogs",
-    "description" : "Utility to enabling bridging Valheim to Discord",
-    "tags" : ["Utility"]
-}
