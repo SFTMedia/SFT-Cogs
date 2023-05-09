@@ -5,7 +5,6 @@
     "short" : "SFT Cogs",
     "description" : "Utility to enabling bridging Valheim to Discord (WIP)",
     "tags" : ["Utility"],
-    "disabled" : true
     "min_bot_version": "3.5.0",
     "min_python_version": [
         3,
