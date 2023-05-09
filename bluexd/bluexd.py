@@ -4,6 +4,7 @@ class BlueXD(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    __version__ = "1.1.0"
 
     @commands.command()
     async def blue(self,ctx):
@@ -30,9 +31,3 @@ class BlueXD(commands.Cog):
 
 
         await ctx.send(blue_stuff)
-
-
-
-def setup(bot):
-    n = BlueXD(bot)
-    bot.add_cog(n)

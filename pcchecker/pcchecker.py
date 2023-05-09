@@ -4,6 +4,7 @@ class PCChecker(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    __version__ = "1.1.0"
 
     @commands.command()
     async def sjw(self,ctx):
@@ -30,8 +31,3 @@ class PCChecker(commands.Cog):
         #await ctx.send(sjw_rule)
 
         await ctx.send(sjw_rule)
-
-
-def setup(bot):
-    n = PCChecker(bot)
-    bot.add_cog(n)

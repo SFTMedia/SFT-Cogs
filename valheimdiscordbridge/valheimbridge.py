@@ -1,4 +1,5 @@
 import asyncio
+from asyncore import loop
 import discord
 from discord.ext import commands
 import gamedig
@@ -15,6 +16,8 @@ class ValheimBridge(commands.Cog):
         self.valheim_last_message = ""
         self.valheim_last_players = []
         self.valheim_last_status = None
+
+    __version__ = "1.1.0"
 
     async def connect_to_valheim(self):
         while True:
@@ -94,6 +97,3 @@ class ValheimBridge(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         self.bot.loop.create_task(self.connect_to_valheim())
-
-def setup(bot):
-    bot.add_cog(ValheimBridge(bot))

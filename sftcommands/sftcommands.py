@@ -4,6 +4,8 @@ class SFTCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    __version__ = "1.1.0"
+
 
     @commands.command()
     async def shop(self,ctx):
@@ -79,6 +81,8 @@ class SFTCommands(commands.Cog):
             "====[ Frequently Asked Questions ]====\n\n"
             "**What servers do we host?**\n"
             "You can view a full list of our servers here -> <https://www.superfuntime.org/forum/index.php/topic,89705.0.html>\n\n"
+            "**Want to learn more about our community?**\n"
+            "Check our our wiki here -> <https://wiki.superfuntime.org>\n\n"
             "**Need support?**\n"
             "Make a ticket by typing in #support\n\n"
             "**How do I rank up on discord?**\n"
@@ -115,8 +119,3 @@ class SFTCommands(commands.Cog):
             "http://superfuntime.buycraft.net/category/discord")
 
         await ctx.send(roles_msg)
-
-
-def setup(bot):
-    n = SFTCommands(bot)
-    bot.add_cog(n)
