@@ -4,7 +4,7 @@ class PCChecker(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    __version__ = "1.1.0"
+    __version__ = "1.1.1"
 
     @commands.command()
     async def sjw(self,ctx):
@@ -27,7 +27,5 @@ class PCChecker(commands.Cog):
             "I think we each need to allow everyone to have their own opinion on something and while we should try to get them to see that their opinion is wrong, we should not do that by being idiotic SJW's.\n\n"
 
             "NOTE: In my definition, SJW = person who forcibly imposes their beliefs on other people")
-
-        #await ctx.send(sjw_rule)
 
         await ctx.send(sjw_rule)

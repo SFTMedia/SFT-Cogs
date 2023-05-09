@@ -2,7 +2,7 @@
     "author" : ["blalp"],
     "install_msg" : "Downloading BanInfo cog",
     "name" : "BanInfo",
-    "short" : "SFT Cogs",
+    "short" : "Saves messages auto-deleted after a user is banned",
     "description" : "Saves messages auto-deleted after a user is banned",
     "tags" : ["Utility"],
     "min_bot_version": "3.5.0",

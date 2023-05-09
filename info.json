@@ -1,8 +1,14 @@
 {
     "author" : ["bluetigeresw"],
     "install_msg" : "Gaming truly is a lifestyle...",
-    "name" : "SFTCogs",
-    "short" : "SFT Cogs",
-    "description" : "Cogs made mostly by Blue for SFT related systems.",
-    "tags" : ["Utility", "Fun"]
+    "name" : "SFT-Cogs",
+    "short" : "SFT Cogs for Red-DiscordBot",
+    "description" : "Cogs made mostly by Blue (blalp made a few) for Red Discord Bot, mainly for use of SFT related systems.",
+    "tags" : ["Utility", "Fun"],
+    "min_bot_version": "3.5.0",
+    "min_python_version": [
+        3,
+        11,
+        0
+    ]
 }

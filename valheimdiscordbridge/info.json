@@ -2,7 +2,7 @@
     "author" : ["bluetigeresw"],
     "install_msg" : "Connecting Valheim to Discord...",
     "name" : "ValheimBridge",
-    "short" : "SFT Cogs",
+    "short" : "Links Valheim to Discord (WIP)",
     "description" : "Utility to enabling bridging Valheim to Discord (WIP)",
     "tags" : ["Utility"],
     "min_bot_version": "3.5.0",

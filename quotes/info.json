@@ -2,7 +2,7 @@
     "author" : ["bluetigeresw"],
     "install_msg" : "Gaming truly is a lifestyle...",
     "name" : "Quotes",
-    "short" : "Blues Cogs",
+    "short" : "Fun command to recall player quotes",
     "description" : "Fun command to recall player quotes",
     "tags" : ["Fun"],
     "min_bot_version": "3.5.0",

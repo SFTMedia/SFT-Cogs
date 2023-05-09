@@ -2,7 +2,7 @@
     "author" : ["bluetigeresw"],
     "install_msg" : "Gaming truly is a lifestyle...",
     "name" : "SFTPlayerStats",
-    "short" : "SFT Cogs",
+    "short" : "Shows ingame player stats for SFT servers.",
     "description" : "Shows ingame player stats for SFT servers.",
     "tags" : ["Utility"],
     "min_bot_version": "3.5.0",

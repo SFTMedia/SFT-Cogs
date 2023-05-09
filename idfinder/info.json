@@ -2,7 +2,7 @@
     "author" : ["blalp"],
     "install_msg" : "Gets ID",
     "name" : "IDFinder",
-    "short" : "IDFinder",
+    "short" : "Utility to get your discord ID",
     "description" : "Utility to get your discord ID",
     "tags" : ["Utility"],
     "min_bot_version": "3.5.0",

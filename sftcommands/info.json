@@ -2,7 +2,7 @@
     "author" : ["bluetigeresw"],
     "install_msg" : "Gaming truly is a lifestyle...",
     "name" : "SFTCommands",
-    "short" : "SFT Cogs",
+    "short" : "Collection of commands for SFT purposes.",
     "description" : "Collection of commands for SFT purposes.",
     "tags" : ["Utility"],
     "min_bot_version": "3.5.0",
