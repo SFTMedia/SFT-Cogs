@@ -1,0 +1,5 @@
+urllib3
+valheim-gamedig
+discord.py
+gamedig
+a2s
