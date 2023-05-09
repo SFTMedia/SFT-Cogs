@@ -2,7 +2,7 @@
 Cogs made mostly by Blue (blalp made a few) for Red Discord Bot, mainly for use of SFT related systems.
 
 ## Versions
-Python: 3.11+
+Python: 3.11+, 
 Red-DiscordBot: 3.5+
 
 ## Installation
