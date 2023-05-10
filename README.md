@@ -7,7 +7,7 @@ Cogs made mostly by Blue (blalp made a few) for Red Discord Bot, mainly for use 
 [![Support us on Patreon](https://img.shields.io/badge/support-patreon-F96854.svg)](https://www.patreon.com/sftmedia)
 
 ## Installation
-Replacing `[p]` with whatever you set as the command prefix for you instance of Red, use the following command:
+Replacing `[p]` with whatever you set as the command prefix for your instance of Red, use the following command:
 ```
 [p]repo add SFT-Cogs https://github.com/SFTMedia/SFT-Cogs
 ```
