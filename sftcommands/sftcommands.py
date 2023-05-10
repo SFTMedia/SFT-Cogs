@@ -4,7 +4,7 @@ class SFTCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    __version__ = "1.1.0"
+    __version__ = "1.1.1"
 
 
     @commands.command()
@@ -71,6 +71,17 @@ class SFTCommands(commands.Cog):
 	        "https://www.patreon.com/sftmedia")
 
         await ctx.send(patreon_msg)
+	
+	
+    @commands.command()
+    async def wiki(self,ctx):
+        """Links SFT Wiki"""
+
+        wiki_msg = (
+            "Check out helpful guides to our servers or read through our entire history on our wiki!\n"
+	        "https://wiki.superfuntime.org")
+
+        await ctx.send(wiki_msg)
 
 
     @commands.command()
