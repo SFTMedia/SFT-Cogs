@@ -1,7 +1,7 @@
 # SFT-Cogs
 Cogs made mostly by Blue (blalp made a few) for Red Discord Bot, mainly for use of SFT related systems.
 
-![Discord](https://img.shields.io/discord/113990411063656454)
+[![Discord](https://img.shields.io/discord/113990411063656454)](https://discord.gg/P56dXsD)
 ![Python Version](https://img.shields.io/badge/python-3.11-blue.svg)
 [![Red-DiscordBot](https://img.shields.io/badge/red--discordbot-v3.5.1-red)](https://github.com/Cog-Creators/Red-DiscordBot/releases)
 [![Support us on Patreon](https://img.shields.io/badge/support-patreon-F96854.svg)](https://www.patreon.com/sftmedia)
