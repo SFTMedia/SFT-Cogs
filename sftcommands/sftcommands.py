@@ -83,6 +83,17 @@ class SFTCommands(commands.Cog):
 
         await ctx.send(wiki_msg)
 
+	
+    @commands.command()
+    async def discord(self,ctx):
+        """Links SFT discord"""
+
+        discord_msg = (
+            "Invite your friends to our discord!\n"
+	        "https://discord.gg/sft")
+
+        await ctx.send(discord_msg)
+
 
     @commands.command()
     async def faq(self,ctx):
