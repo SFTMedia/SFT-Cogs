@@ -4,7 +4,7 @@ class SFTCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    __version__ = "1.1.1"
+    __version__ = "1.1.2"
 
 
     @commands.command()
