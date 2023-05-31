@@ -4,7 +4,7 @@ class SFTCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    __version__ = "1.1.2"
+    __version__ = "1.1.3"
 
 
     @commands.command()
@@ -56,9 +56,9 @@ class SFTCommands(commands.Cog):
         """Explains how to connect with Bedrock Edition"""
 
         bedrock_help_msg = (
-            "You can connect to our servers via Minecraft: PE, Minecraft for Windows 10 and even consoles (Bedrock Edition)!\n\n"
-            "Server ip: play.superfuntime.org:19132\n\n"
-            "WARNING: Experimental. We cannot and will not fix bugs that come from connecting via this ip. This is basically doing some wild magic to convert PE packets into Java packets and make it all work out!\n\n"
+            "You can connect to our servers using *Bedrock Edition* for Minecraft: PE, Minecraft for Windows and even consoles!\n\n"
+            "**Server ip:** play.superfuntime.org:19132\n\n"
+            "*WARNING*: Experimental. We cannot and will not fix bugs that come from connecting via this ip. This is basically doing some wild magic to convert PE packets into Java packets and make it all work out!\n\n"
             "All possible with Geyser https://github.com/GeyserMC/Geyser")
 
         await ctx.send(bedrock_help_msg)
