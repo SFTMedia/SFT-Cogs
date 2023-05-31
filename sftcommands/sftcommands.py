@@ -52,17 +52,6 @@ class SFTCommands(commands.Cog):
 
 
     @commands.command()
-    async def servers(self,ctx):
-        """Links SFT server list"""
-
-        server_list_msg = (
-            "**Check out all the servers we host here** ->\n"
-	        "https://www.superfuntime.org/forum/index.php/topic,89705.0.html")
-
-        await ctx.send(server_list_msg)
-
-
-    @commands.command()
     async def bedrock(self,ctx):
         """Explains how to connect with Bedrock Edition"""
 
