@@ -52,24 +52,13 @@ class SFTCommands(commands.Cog):
 
 
     @commands.command()
-    async def servers(self,ctx):
-        """Links SFT server list"""
-
-        server_list_msg = (
-            "**Check out all the servers we host here** ->\n"
-	        "https://www.superfuntime.org/forum/index.php/topic,89705.0.html")
-
-        await ctx.send(server_list_msg)
-
-
-    @commands.command()
     async def bedrock(self,ctx):
         """Explains how to connect with Bedrock Edition"""
 
         bedrock_help_msg = (
-            "You can connect to our servers via Minecraft: PE, Minecraft for Windows 10 and even consoles (Bedrock Edition)!\n\n"
-            "Server ip: play.superfuntime.org:19132\n\n"
-            "WARNING: Experimental. We cannot and will not fix bugs that come from connecting via this ip. This is basically doing some wild magic to convert PE packets into Java packets and make it all work out!\n"
+            "You can connect to our servers using *Bedrock Edition* for Minecraft: PE, Minecraft for Windows and even consoles!\n\n"
+            "**Server ip:** play.superfuntime.org:19132\n\n"
+            "*WARNING*: Experimental. We cannot and will not fix bugs that come from connecting via this ip. This is basically doing some wild magic to convert PE packets into Java packets and make it all work out!\n\n"
             "All possible with Geyser https://github.com/GeyserMC/Geyser")
 
         await ctx.send(bedrock_help_msg)
