@@ -4,7 +4,7 @@ class SFTCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    __version__ = "1.1.2"
+    __version__ = "1.1.3"
 
 
     @commands.command()
@@ -106,6 +106,17 @@ class SFTCommands(commands.Cog):
 	        "https://wiki.superfuntime.org")
 
         await ctx.send(wiki_msg)
+
+
+    @commands.command()
+    async def staff(self,ctx):
+        """Links list of SFT staff members"""
+
+        staff_msg = (
+            "You can view a list of the staff on our various server here ->\n"
+	        "https://superfuntime.org/whoarewe")
+
+        await ctx.send(staff_msg)
 
 	
     @commands.command()
