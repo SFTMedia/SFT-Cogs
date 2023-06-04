@@ -102,7 +102,7 @@ class SFTCommands(commands.Cog):
         """Links list of SFT staff members"""
 
         staff_msg = (
-            "You can view a list of the staff on our various server here ->\n"
+            "You can view a list of staff members across our various servers here ->\n"
 	        "https://superfuntime.org/whoarewe")
 
         await ctx.send(staff_msg)
