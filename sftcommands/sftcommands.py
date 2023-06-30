@@ -4,7 +4,7 @@ class SFTCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    __version__ = "1.1.3"
+    __version__ = "1.1.4"
 
 
     @commands.command()
@@ -103,7 +103,7 @@ class SFTCommands(commands.Cog):
 
         staff_msg = (
             "You can view a list of staff members across our various servers here ->\n"
-	        "https://superfuntime.org/whoarewe")
+	        "https://www.superfuntime.org/forum/index.php/topic,193266.msg916091.html#msg916091")
 
         await ctx.send(staff_msg)
 
